@@ -1,0 +1,51 @@
+<?php
+session_start();
+include('conexao.php');
+
+if(empty($_POST['login']) || empty($_POST['password'])  ) {
+	$_SESSION['nao_autenticado'] = true;
+	header('Location: index.php');
+	exit();
+}
+
+$login = mysqli_real_escape_string($conn, $_POST['login']);
+$password = mysqli_real_escape_string($conn, $_POST['password']);
+$status = mysqli_real_escape_string($conn, $_POST['status']);
+
+$query = "select * from user where usuario LIKE '%{$login}%' and senha = md5('{$password}') and status_login = 1 ";
+
+$result = mysqli_query($conn, $query);
+// print_r($result);
+
+while ($row_usuario = mysqli_fetch_assoc($result)) {
+	
+	$id_user = $row_usuario['id'];
+	$unique_id = $row_usuario['unique_id'];
+	$status_login = $row_usuario['status_login'];
+
+}
+
+$row = mysqli_num_rows($result);
+
+if($row == 1) {
+	$_SESSION['login'] = $login;
+	$_SESSION['id_user'] = $id_user;
+	$_SESSION['unique_id'] = $unique_id;
+	$_SESSION['status_login'] = $status_login;
+	$status = "Ativo agora";
+	$session_id = session_id();
+
+	$sql = "UPDATE user SET status = '{$status}', session = '{$session_id}' WHERE unique_id= {$unique_id} ";
+	$query = mysqli_query($conn, $sql);
+
+	header('Location: starter');
+	exit();
+} else {
+	$_SESSION['nao_autenticado'] = true;
+	header('Location: index');
+	exit();
+}
+
+
+
+?>
