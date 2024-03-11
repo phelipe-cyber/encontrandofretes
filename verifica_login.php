@@ -8,7 +8,7 @@ $dotenv->load();
 
 
 if(!$_SESSION['login']) {
-	header('Location: index');
+	header('Location: realizar_login');
 	exit();
 }
 
