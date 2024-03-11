@@ -4,7 +4,7 @@ include('conexao.php');
 
 if(empty($_POST['login']) || empty($_POST['password'])  ) {
 	$_SESSION['nao_autenticado'] = true;
-	header('Location: realiza_login');
+	header('Location: realizar_login');
 	exit();
 }
 
@@ -42,7 +42,7 @@ if($row == 1) {
 	exit();
 } else {
 	$_SESSION['nao_autenticado'] = true;
-	header('Location: realiza_login');
+	header('Location: realizar_login');
 	exit();
 }
 
