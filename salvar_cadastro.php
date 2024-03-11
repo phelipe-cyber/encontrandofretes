@@ -12,9 +12,10 @@
     $municipio = $_POST['municipio'];
     $complemento = $_POST['complemento'];
     $telefone = $_POST['telefone'];
+    $tipo_veiculo = $_POST['tipo_veiculo'];
 
-    $sql = "INSERT INTO `cadastro_motorista`(`cnpj`, `nome`, `cep`, `logradouro`, `numero`, `bairro`, `uf`, `municipio`, `complemento`, `telefone`)
-    VALUES ('$cnpj','$nome','$cep','$logradouro','$numero','$bairro','$uf','$municipio','$complemento','$telefone')";
+    $sql = "INSERT INTO `cadastro_motorista`(`cnpj`, `nome`, `cep`, `logradouro`, `numero`, `bairro`, `uf`, `municipio`, `complemento`, `telefone`, `tipo_veiculo`)
+    VALUES ('$cnpj','$nome','$cep','$logradouro','$numero','$bairro','$uf','$municipio','$complemento','$telefone','$tipo_veiculo')";
 
     $salvar = mysqli_query($conn, $sql);
         

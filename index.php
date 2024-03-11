@@ -92,7 +92,7 @@ session_start();
               
 
               <div id="cnpjContainer" class="input-group mb-3">
-                <input required id="cnpjInput" name="cnpj" type="text" class="form-control" data-inputmask="'mask': ['99.999.999/9999-99']" data-mask placeholder="CNPJ">
+                <input required id="cnpjInput" name="cnpj" type="text" class="form-control" data-inputmask="'mask': ['99.999.999/9999-99', 999.999.999-99 ]" data-mask placeholder="CNPJ ou CPF">
                 <div class="input-group-append">
                   <div class="input-group-text">
                     <span class="fas fa-user"></span>
@@ -173,7 +173,16 @@ session_start();
               </div>
 
               <div id="telefoneContainer" class="input-group mb-3">
-                <input required id="telefoneInput" name="telefone" type="text" class="form-control" data-inputmask="'mask': ['(99) 9999-9999', '(99) 99999-9999']" data-mask placeholder="TELEFONE">
+                <input required id="telefoneInput" name="telefone" type="text" class="form-control" data-inputmask="'mask': ['(99) 9999-9999', '(99) 99999-9999']" data-mask placeholder="Telefone ou Whatsapp">
+                <div class="input-group-append">
+                  <div class="input-group-text">
+                    <span class="fas fa-user"></span>
+                  </div>
+                </div>
+              </div>
+
+              <div id="modeloContainer" class="input-group mb-3">
+                <input required id="modeloInput" name="modelo" type="text" class="form-control" placeholder="TIPO DE VEICULO">
                 <div class="input-group-append">
                   <div class="input-group-text">
                     <span class="fas fa-user"></span>
