@@ -8,4 +8,4 @@ $query = mysqli_query($conn, $sql);
 
 session_unset();
 session_destroy();
-header('Location: index');
+header('Location: realiza_login');
